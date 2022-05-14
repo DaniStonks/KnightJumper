@@ -3,8 +3,7 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 550f;							// Amount of force added when the player jumps.
-	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
+	[SerializeField] private float m_JumpForce = 650f;							// Amount of force added when the player jumps.
 	[SerializeField] private bool isGrounded; //Whether or not the character is touching the ground
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -13,20 +12,9 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
-	[Header("Events")]
-	[Space]
-
-	public UnityEvent OnLandEvent;
-
-	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
-
-		if (OnLandEvent == null)
-			OnLandEvent = new UnityEvent();
 	}
 
 	public void Jump(float move, bool crouch, bool jump)
@@ -63,7 +51,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	private void Flip()
+	public void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
