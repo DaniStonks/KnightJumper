@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     [SerializeField] private float tapSpeed = 0.3f;
     [SerializeField] private float maxJumpForce = 650f;	// Amount of force added when the player jumps.
     [SerializeField] private float horizontalJumpForce = 350f;
@@ -21,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMove = 0f;
     private bool jump = false;
     private bool maxCharge = false;
+    [SerializeField] private float clicked = 0;
     [SerializeField]private float buttonTimer = 0f;
+    [SerializeField]private float tapTimer = 0f;
     [SerializeField]private float jumpForce;
 
     void Start()
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
                 maxCharge = true;
             }
 
-
             buttonTimer += Time.deltaTime;
         }
         if(Input.GetButtonUp("Jump") || maxCharge){
@@ -57,6 +57,19 @@ public class PlayerMovement : MonoBehaviour
                 jump = true;
             }
             buttonTimer = 0f;
+        }
+
+        if(Input.GetButtonDown("Jump") && isGrounded){
+            clicked += 1;
+            if (clicked == 1) tapTimer = Time.time;
+        }
+        if (clicked > 1 && Time.time - tapTimer < tapSpeed)
+        {
+            Flip();
+            clicked = 0;
+            tapTimer = 0;
+        } else if (clicked > 2 || Time.time - tapTimer > 1){
+            clicked = 0;
         }
 
         if(isGrounded){
@@ -104,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if(collision.gameObject.CompareTag("Wall") && !isGrounded){
 			isHit = true;
+            rb2D.AddForce(new Vector2((-horizontalMove/3) * Time.fixedDeltaTime, -2));
 		}
 	}
 }
