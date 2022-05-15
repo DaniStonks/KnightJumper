@@ -6,29 +6,29 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float tapSpeed = 0.3f;
     [SerializeField] private float maxJumpForce = 650f;	// Amount of force added when the player jumps.
-    [SerializeField] private float horizontalJumpForce = 400f;
+    [SerializeField] private float minJumpForce = 180f;	// Amount of force added when the player jumps.
     [SerializeField] private float maxChargeTime = 1.5f;
     [SerializeField] private float minChargeTime = 0.15f;
-    //linear function to calculate jump power y=mx+b
-    //jumpFunctionSlope is m
-    private float jumpFunctionSlope = 348.148148148f;
-    private float jumpFunctionConstant = 127.7777777f;
-	private Rigidbody2D rb2D;
-    private bool isGrounded; //Whether or not the character is touching the ground
+    [SerializeField] private float horizontalJumpForce = 400f;
+    [SerializeField] private float clicked = 0;
+    [SerializeField]private float buttonTimer = 0f;
+    [SerializeField]private float tapTimer = 0f;
+    [SerializeField]private float jumpForce;
+    private float jumpFunctionSlope;
+    private float jumpFunctionConstant;
+	private Rigidbody2D rigidbody2D;
+    private bool isGrounded;
 	private bool isHit;
 	private bool facingRight = true;  // For determining which way the player is currently facing.
     private float horizontalMove = 0f;
     private bool jump = false;
     private bool maxCharge = false;
-    [SerializeField] private float clicked = 0;
-    [SerializeField]private float buttonTimer = 0f;
-    [SerializeField]private float tapTimer = 0f;
-    [SerializeField]private float jumpForce;
 
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
-        //jumpFunctionSlope = maxJumpForce/maxChargeTime;
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        jumpFunctionSlope = MathUtils.findSlope(minChargeTime, maxChargeTime, minJumpForce, maxJumpForce);
+        jumpFunctionConstant = MathUtils.findOriginPoint(jumpFunctionSlope, minChargeTime, minJumpForce);
     }
 
     // Update is called once per frame
@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         Jump(horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
         maxCharge = false;
-        jumpForce = 0f;
     }
 
 	public void Jump(float horizontalForce, bool crouch, bool jump)
@@ -95,7 +94,9 @@ public class PlayerMovement : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			isGrounded = false;
-			rb2D.AddForce(new Vector2(horizontalForce, jumpForce));
+            jump = false;
+			rigidbody2D.AddForce(new Vector2(horizontalForce, jumpForce));
+            jumpForce = 0f;
 		}
 	}
 
@@ -112,14 +113,14 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.CompareTag("Ground")){
-            rb2D.velocity = Vector3.zero;
-            rb2D.angularVelocity = 0f; 
+            rigidbody2D.velocity = Vector3.zero;
+            rigidbody2D.angularVelocity = 0f; 
 			isGrounded = true;
             isHit = false;
 		}
 		if(collision.gameObject.CompareTag("Wall") && !isGrounded){
 			isHit = true;
-            rb2D.AddForce(new Vector2((-horizontalMove/3) * Time.fixedDeltaTime, -2));
+            rigidbody2D.AddForce(new Vector2((-horizontalMove/3) * Time.fixedDeltaTime, -2));
 		}
 	}
 }
