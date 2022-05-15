@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float tapSpeed = 0.3f;
     [SerializeField] private float maxJumpForce = 650f;	// Amount of force added when the player jumps.
-    [SerializeField] private float horizontalJumpForce = 350f;
+    [SerializeField] private float horizontalJumpForce = 400f;
     [SerializeField] private float maxChargeTime = 1.5f;
-    [SerializeField] private float minChargeTime = 0.2f;
+    [SerializeField] private float minChargeTime = 0.15f;
     //linear function to calculate jump power y=mx+b
     //jumpFunctionSlope is m
-    private float jumpFunctionSlope = 250f;
-    private float jumpFunctionConstant = 275f;
+    private float jumpFunctionSlope = 348.148148148f;
+    private float jumpFunctionConstant = 127.7777777f;
 	private Rigidbody2D rb2D;
     private bool isGrounded; //Whether or not the character is touching the ground
 	private bool isHit;
@@ -112,6 +112,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.CompareTag("Ground")){
+            rb2D.velocity = Vector3.zero;
+            rb2D.angularVelocity = 0f; 
 			isGrounded = true;
             isHit = false;
 		}
