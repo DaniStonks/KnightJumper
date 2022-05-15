@@ -100,18 +100,36 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	public void Flip()
-	{
-		// Switch the way the player is labelled as facing.
-		facingRight = !facingRight;
+    //public void Flip()
+    //{
+    //	// Switch the way the player is labelled as facing.
+    //	facingRight = !facingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+    //	// Multiply the player's x local scale by -1.
+    //	Vector3 theScale = transform.localScale;
+    //	theScale.x *= -1;
+    //	transform.localScale = theScale;
+    //}
 
-	void OnCollisionEnter2D(Collision2D collision){
+    public void Flip()
+    {
+        facingRight = !facingRight;
+
+        if (facingRight == true)
+        {
+            transform.Translate(new Vector3((float)0.5, 0));
+        }
+        else
+        {
+            transform.Translate(new Vector3((float)-0.5, 0));
+        }
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.CompareTag("Ground")){
             rigidbody2D.velocity = Vector3.zero;
             rigidbody2D.angularVelocity = 0f; 
