@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float tapSpeed = 0.3f;
-    [SerializeField] private float maxJumpForce = 650f;	// Amount of force added when the player jumps.
+    [SerializeField] private float maxJumpForce = 700f;	// Amount of force added when the player jumps.
     [SerializeField] private float minJumpForce = 180f;	// Amount of force added when the player jumps.
     [SerializeField] private float maxChargeTime = 1.5f;
     [SerializeField] private float minChargeTime = 0.15f;
