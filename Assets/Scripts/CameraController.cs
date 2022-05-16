@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject player;
     private Vector3 playerPosition;
-    private static readonly float offset = 1.5f;
+    private static readonly float offset = 2f;
     private static readonly float offsetSmoothing = 2f;
 
     // Start is called before the first frame update
