@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minJumpForce = 180f;	// Amount of force added when the player jumps.
     [SerializeField] private float maxChargeTime = 1.5f;
     [SerializeField] private float minChargeTime = 0.15f;
-    [SerializeField] private float horizontalJumpForce = 400f;
+    [SerializeField] private float horizontalJumpForce = 450f;
     [SerializeField] private float clicked = 0;
     [SerializeField]private float buttonTimer = 0f;
     [SerializeField]private float tapTimer = 0f;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
             clicked = 0;
             tapTimer = 0;
-        } else if (clicked > 2 || Time.time - tapTimer > 1){
+        } else if (clicked > 2 || Time.time - tapTimer > tapSpeed){
             clicked = 0;
         }
 
