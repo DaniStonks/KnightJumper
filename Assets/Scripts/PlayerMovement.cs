@@ -138,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 		if(collision.gameObject.CompareTag("Wall") && !isGrounded){
 			isHit = true;
-            rigidbody2D.AddForce(new Vector2((-horizontalMove/3) * Time.fixedDeltaTime, -2));
 		}
 	}
 }

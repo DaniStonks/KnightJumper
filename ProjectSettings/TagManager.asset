@@ -43,16 +43,13 @@ TagManager:
   - name: Background
     uniqueID: 609747939
     locked: 0
-  - name: BackgroundTiles
-    uniqueID: 2482055237
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: TileDecorations
+  - name: Decorations
     uniqueID: 2110006263
     locked: 0
-  - name: TileGround
+  - name: Ground
     uniqueID: 632847605
     locked: 0
   - name: Player
