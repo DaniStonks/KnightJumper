@@ -100,28 +100,17 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-    //public void Flip()
-    //{
-    //	// Switch the way the player is labelled as facing.
-    //	facingRight = !facingRight;
-
-    //	// Multiply the player's x local scale by -1.
-    //	Vector3 theScale = transform.localScale;
-    //	theScale.x *= -1;
-    //	transform.localScale = theScale;
-    //}
-
     public void Flip()
     {
         facingRight = !facingRight;
 
         if (facingRight == true)
         {
-            transform.Translate(new Vector3((float)0.5, 0));
+            transform.Translate(new Vector3(0.2f, 0));
         }
         else
         {
-            transform.Translate(new Vector3((float)-0.5, 0));
+            transform.Translate(new Vector3(-0.2f, 0));
         }
 
         Vector3 theScale = transform.localScale;
