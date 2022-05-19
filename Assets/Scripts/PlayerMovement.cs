@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     private float jumpFunctionSlope;
     private float jumpFunctionConstant;
 	private Rigidbody2D rigidbody2D;
+    private AudioSource audioSource;
+    public AudioClip jumpSound;
+    public AudioClip hitSound;
+    public AudioClip landSound;
     private bool isGrounded;
 	private bool isHit;
 	private bool facingRight = true;  // For determining which way the player is currently facing.
@@ -28,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         jumpFunctionSlope = MathUtils.findSlope(minChargeTime, maxChargeTime, minJumpForce, maxJumpForce);
         jumpFunctionConstant = MathUtils.findOriginPoint(jumpFunctionSlope, minChargeTime, minJumpForce);
@@ -99,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             jump = false;
 			rigidbody2D.AddForce(new Vector2(horizontalForce, jumpForce));
             jumpForce = 0f;
+            audioSource.PlayOneShot(jumpSound, 1F);
 		}
 	}
 
@@ -126,9 +132,11 @@ public class PlayerMovement : MonoBehaviour
             rigidbody2D.angularVelocity = 0f; 
 			isGrounded = true;
             isHit = false;
+            audioSource.PlayOneShot(landSound, 1F);
 		}
 		if(collision.gameObject.CompareTag("Wall") && !isGrounded){
 			isHit = true;
+            audioSource.PlayOneShot(hitSound, 1F);
 		}
 	}
 }
