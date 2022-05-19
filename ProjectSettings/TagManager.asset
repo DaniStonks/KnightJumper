@@ -7,8 +7,7 @@ TagManager:
   - Ground
   - Wall
   - Finished
-  - SecondBox
-  - ThirdBox
+  - Princess
   layers:
   - Default
   - TransparentFX
@@ -57,4 +56,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3261424123
+    locked: 0
+  - name: Princess
+    uniqueID: 1565309981
     locked: 0
