@@ -18,8 +18,15 @@ public class TutorialLevelCrontrollers : MonoBehaviour
 
     public void Start()
     {
-        //if(isLanguageEnglish == true){}
-        //else if(isLanguageEnglish == false){}
+
+        if(LanguagePreference.isEnglish){
+            firstBoxText.text = ("To jump hold the space bar for a short time!\n\n"+
+                                    "Press space to continue!");
+        }
+        else{
+            firstBoxText.text = ("Para saltar carregue no espaço por pouco tempo!\n\n" +
+                                    "Carregue no espaço para continuar!");
+        }
         Time.timeScale = 0;
     }
 
@@ -51,16 +58,32 @@ public class TutorialLevelCrontrollers : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("SecondBox"))
         {
-            //if(isLanguageEnglish == true){}
-            //else if(isLanguageEnglish == false){}
+            if(LanguagePreference.isEnglish){
+                secondBoxText.text = ("To charge a jump hold the space bar!\n\n" +
+                                        "Press space to continue!");
+
+            }
+            else{
+                secondBoxText.text = ("Para aumentar o salto fique a precionar o espaço!\n\n" +
+                                        "Carregue no espaço para continuar!");
+            }
             secondDialogBox.SetActive(true);
             Time.timeScale = 0;
             firstCollider.GetComponent<Collider2D>().enabled = false;
         }
         if (collision.gameObject.CompareTag("ThirdBox"))
         {
-            //if(isLanguageEnglish == true){}
-            //else if(isLanguageEnglish == false){}
+            if (LanguagePreference.isEnglish)
+            {
+                thirdBoxText.text = ("To swap direction double press the space bar!\n\n" + 
+                                        "Press space to continue!");
+
+            }
+            else
+            {
+                thirdBoxText.text = ("Para mudar de direção carregue duas vezes no espaço!\n\n" +
+                                        "Carregue no espaço para continuar!");
+            }
             thirdDialogBox.SetActive(true);
             Time.timeScale = 0;
             pointer.SetActive(true);

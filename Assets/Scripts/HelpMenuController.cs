@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class HelpMenuController : MonoBehaviour
 {
+    public AudioSource clickButton;
     public GameObject helpMenu;
     public GameObject mainMenu;
     public Text instructionsText;
-    private bool isLanguageEnglish;
+    
 
     private void Start()
     {
-        SetIsLanguageEnglish(true);
+        LanguagePreference.isEnglish = true;
     }
 
     public void SwapLanguageToEnglish() {
@@ -21,7 +22,8 @@ public class HelpMenuController : MonoBehaviour
                                 "-> To empower jump hold the space bar \n" +
                                 "-> To swap direction double press in the space bar \n" +
                                 "-> To open menu in game press escape");
-        SetIsLanguageEnglish(true);
+        LanguagePreference.isEnglish = true;
+        clickButton.Play();
     }
 
     public void SwapLanguageToPortuguese()
@@ -30,23 +32,18 @@ public class HelpMenuController : MonoBehaviour
                                 "-> Para aumentar o salto fique a pressionar no espaço \n" +
                                 "-> Para mudar de direção carregue duas vezes no espaço \n" +
                                 "-> Para abrir o menu dentro do jogo carregue no esc");
-        SetIsLanguageEnglish(false);
+        LanguagePreference.isEnglish = false;
+        clickButton.Play();
     }
 
     public void PlayTutorialLevel() {
         SceneManager.LoadScene("TutorialLevel");
+        clickButton.Play();
     }
 
     public void BackToMainMenu() {
         helpMenu.SetActive(false);
         mainMenu.SetActive(true);
-    }
-
-    private bool GetIsLanguageEnglish() {
-        return isLanguageEnglish;
-    }
-
-    private void SetIsLanguageEnglish(bool value) {
-        isLanguageEnglish = value;
+        clickButton.Play();
     }
 }

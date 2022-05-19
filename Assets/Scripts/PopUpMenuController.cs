@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PopUpMenuController : MonoBehaviour
 {
+    public AudioSource clickButton;
     public GameObject popUpMenu;
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PopUpMenuController : MonoBehaviour
     {
         popUpMenu.SetActive(false);
         Time.timeScale = 1;
+        clickButton.Play();
     }
 
     public void ExitToMainMenu()
@@ -33,10 +35,12 @@ public class PopUpMenuController : MonoBehaviour
         popUpMenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
+        clickButton.Play();
     }
 
     public void RestartGame()
     {
+        clickButton.Play();
         popUpMenu.SetActive(false);
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
