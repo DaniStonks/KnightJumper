@@ -31,7 +31,7 @@ public class PopUpMenuController : MonoBehaviour
     public void ExitToMainMenu()
     {
         popUpMenu.SetActive(false);
-        SceneManager.LoadScene("ExemploDeMainMenu");
+        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
     }
 

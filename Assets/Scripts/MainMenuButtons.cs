@@ -18,6 +18,6 @@ public class MainMenuButtons : MonoBehaviour
     }
 
     public void ExitGame() {
-        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit(0);
     }
 }
