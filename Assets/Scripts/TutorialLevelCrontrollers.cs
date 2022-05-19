@@ -13,5 +13,10 @@ public class TutorialLevelCrontrollers : MonoBehaviour
             popUpMenu.SetActive(true);
             Time.timeScale = 0;
         }
+        if (collision.gameObject.CompareTag("Finished"))
+        {
+            popUpMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

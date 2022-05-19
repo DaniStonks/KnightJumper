@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuButtons : MonoBehaviour
+public class MainMenuController : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject helpMenu;
 
     public void StartGame() {
-        SceneManager.LoadScene("sampleScene");
+        SceneManager.LoadScene(0);
     }
 
     public void GoToHelpMenu() {
