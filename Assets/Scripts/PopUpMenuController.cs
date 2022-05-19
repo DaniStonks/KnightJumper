@@ -38,7 +38,7 @@ public class PopUpMenuController : MonoBehaviour
     public void RestartGame()
     {
         popUpMenu.SetActive(false);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
 

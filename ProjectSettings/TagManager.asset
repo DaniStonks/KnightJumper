@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Wall
   - Finished
+  - SecondBox
+  - ThirdBox
   layers:
   - Default
   - TransparentFX
