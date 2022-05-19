@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class LanguagePreference
 {
-    public static bool isEnglish = true;
+    private static bool language = true;
 
-    public static bool language
+    public static bool isEnglish
     {
-        get { return isEnglish; }
-        set { isEnglish = value; }
+        get { return language; }
+        set { language = value; }
     }
 }
