@@ -171,9 +171,10 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5, y: 0}
-  - {x: 0.43644166, y: -0.73140955}
-  - {x: 1.0473568, y: -1.6965737}
-  - {x: 1.7729263, y: -2.8428726}
+  - {x: 0.2914164, y: -0.88610315}
+  - {x: 0.97001004, y: -1.8319306}
+  - {x: 1.3432767, y: -2.6750822}
+  - {x: 1.405529, y: -3.3262901}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3218,7 +3219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129942537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -5.92, z: 0}
+  m_LocalPosition: {x: 1.53, y: -5.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 724442741}
@@ -7229,7 +7230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315237480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -1.92, z: 0}
+  m_LocalPosition: {x: 1.515, y: -1.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 724442741}
@@ -21860,7 +21861,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.50572586, y: 0.8505287}
+  - {x: 0.5139289, y: 0.8095112}
   - {x: 0.5063, y: -0.07768631}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -32586,7 +32587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456687827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.49, y: -0.94, z: 0}
+  m_LocalPosition: {x: -3.45, y: -0.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 724442741}
@@ -41547,7 +41548,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814563073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 53.52, z: 0}
+  m_LocalPosition: {x: -7.517, y: -2.018, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45367,9 +45368,9 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5, y: 0}
-  - {x: 0.43644166, y: -0.73140955}
-  - {x: 1.0473568, y: -1.6965737}
-  - {x: 1.7729263, y: -2.8428726}
+  - {x: 0.31799722, y: -0.86170053}
+  - {x: 1.2131789, y: -2.2414155}
+  - {x: 1.4768162, y: -3.3877144}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
