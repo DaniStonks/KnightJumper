@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minChargeTime = 0.15f;
     [SerializeField] private float horizontalJumpForce = 350f;
     private float clicked = 0;
+    private float jumps = 0;
     private float buttonTimer = 0f;
     private float tapTimer = 0f;
     private float jumpForce;
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             jump = false;
 			rigidbody2D.AddForce(new Vector2(horizontalForce, jumpForce));
             jumpForce = 0f;
+            jumps++;
             audioSource.PlayOneShot(jumpSound, 1F);
 		}
 	}
