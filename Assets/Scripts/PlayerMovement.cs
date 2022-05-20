@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float minChargeTime = 0.15f;
     [SerializeField] private float horizontalJumpForce = 350f;
     private float clicked = 0;
-    private float jumps = 0;
+    private float jumps = 0f;
     private float buttonTimer = 0f;
     private float tapTimer = 0f;
     private float jumpForce;
@@ -140,5 +140,13 @@ public class PlayerMovement : MonoBehaviour
 			isHit = true;
             audioSource.PlayOneShot(hitSound, 1F);
 		}
+        if(collision.gameObject.CompareTag("Wall") && !isGrounded){
+			isHit = true;
+            audioSource.PlayOneShot(hitSound, 1F);
+		}
 	}
+
+    public float getJumps(){
+        return jumps;
+    }
 }

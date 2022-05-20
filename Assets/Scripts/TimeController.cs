@@ -23,4 +23,8 @@ public class TimeController : MonoBehaviour
         TimeSpan time = TimeSpan.FromSeconds(timeElapsed);
         timeText.text = time.ToString(@"hh\:mm\:ss");
     }
+
+    public TimeSpan getTimeElapsed(){
+        return TimeSpan.FromSeconds(timeElapsed);
+    }
 }
