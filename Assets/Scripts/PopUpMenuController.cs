@@ -20,6 +20,7 @@ public class PopUpMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             popUpMenu.SetActive(true);
+            AudioListener.pause = true;
             Time.timeScale = 0;
         }
     }
@@ -27,6 +28,7 @@ public class PopUpMenuController : MonoBehaviour
     {
         popUpMenu.SetActive(false);
         Time.timeScale = 1;
+        AudioListener.pause = false;
         clickButton.Play();
     }
 
@@ -34,6 +36,7 @@ public class PopUpMenuController : MonoBehaviour
     {
         popUpMenu.SetActive(false);
         SceneManager.LoadScene("MainMenu");
+        AudioListener.pause = false;
         Time.timeScale = 1;
         clickButton.Play();
     }
@@ -42,7 +45,8 @@ public class PopUpMenuController : MonoBehaviour
     {
         clickButton.Play();
         popUpMenu.SetActive(false);
-        SceneManager.LoadScene(0);
+        AudioListener.pause = false;
+        SceneManager.LoadScene("Game");
         Time.timeScale = 1;
     }
 

@@ -54,6 +54,7 @@ public class TutorialLevelCrontrollers : MonoBehaviour
         if (collision.gameObject.CompareTag("Finished"))
         {
             popUpMenu.SetActive(true);
+            AudioListener.pause = true;
             Time.timeScale = 0;
         }
         if (collision.gameObject.CompareTag("SecondBox"))
